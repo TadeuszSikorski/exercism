@@ -1,4 +1,7 @@
 def convert(number: int) -> str:
+    if type(number) != int:
+        raise Exception("The argument provided must be an integer.")
+
     raindrops = ""
 
     if number % 3 == 0:
