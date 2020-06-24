@@ -2,7 +2,7 @@ def convert(number: int) -> str:
     if type(number) != int:
         raise Exception("The argument provided must be an integer.")
 
-    raindrops = ""
+    raindrops: str = ""
 
     if number % 3 == 0:
         raindrops += "Pling"
@@ -10,7 +10,8 @@ def convert(number: int) -> str:
         raindrops += "Plang"
     if number % 7 == 0:
         raindrops += "Plong"
-    if number % 3 != 0 and number % 5 != 0 and number % 7 != 0:
-        raindrops = "{}".format(number)
+    
+    if raindrops == "":
+        raindrops = str(number)
 
     return raindrops
