@@ -1,5 +1,5 @@
 def check_scores(scores: list):
-    if scores == []:
+    if not scores:
         raise Exception("List of scores is empty.")
 
 
@@ -18,6 +18,4 @@ def personal_best(scores: list) -> int:
 def personal_top_three(scores: list) -> list:
     check_scores(scores)
 
-    scores.sort(reverse=True)
-
-    return scores[:3]
+    return sorted(scores, reverse=True)[:3]
