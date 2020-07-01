@@ -2,29 +2,35 @@ using System;
 
 public class SpaceAge
 {
-    private double earthOrbitalPeriodInSecond = 31557600.0;
+    private const double earthOrbitalPeriodInSecond = 31557600.0;
+    private const double mercuryOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 0.2408467;
+    private const double venusOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 0.61519726;
+    private const double marsOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 1.8808158;
+    private const double jupiterOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 11.862615;
+    private const double saturnOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 29.447498;
+    private const double uranusOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 84.016846;
+    private const double neptuneOrbitalPeriodInSecond = earthOrbitalPeriodInSecond * 164.79132;
+
     private int ageInSeconds;
 
     public SpaceAge(int seconds)
     {
-        ageInSeconds = seconds;
+        this.ageInSeconds = seconds;
     }
 
-    private double GetPlanetOrbitalPeriodInSecond(double orbitalPeriodInEarthYears) => earthOrbitalPeriodInSecond * orbitalPeriodInEarthYears;
+    public double OnEarth() => ageInSeconds / earthOrbitalPeriodInSecond;
 
-    public double OnEarth() => Math.Round(ageInSeconds / earthOrbitalPeriodInSecond, 2);
+    public double OnMercury() =>  ageInSeconds / mercuryOrbitalPeriodInSecond;
 
-    public double OnMercury() =>  Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(0.2408467), 2);
+    public double OnVenus() => ageInSeconds / venusOrbitalPeriodInSecond;
 
-    public double OnVenus() => Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(0.61519726), 2);
+    public double OnMars() => ageInSeconds / marsOrbitalPeriodInSecond;
 
-    public double OnMars() => Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(1.8808158), 2);
+    public double OnJupiter() => ageInSeconds / jupiterOrbitalPeriodInSecond;
 
-    public double OnJupiter() => Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(11.862615), 2);
+    public double OnSaturn() => ageInSeconds / saturnOrbitalPeriodInSecond;
 
-    public double OnSaturn() => Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(29.447498), 2);
+    public double OnUranus() => ageInSeconds / uranusOrbitalPeriodInSecond;
 
-    public double OnUranus() => Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(84.016846), 2);
-
-    public double OnNeptune() => Math.Round(ageInSeconds / GetPlanetOrbitalPeriodInSecond(164.79132), 2);
+    public double OnNeptune() => ageInSeconds / neptuneOrbitalPeriodInSecond;
 }
