@@ -10,8 +10,5 @@ def convert(number: int) -> str:
         raindrops += "Plang"
     if number % 7 == 0:
         raindrops += "Plong"
-    
-    if raindrops == "":
-        raindrops = str(number)
 
-    return raindrops
+    return raindrops or str(number)
