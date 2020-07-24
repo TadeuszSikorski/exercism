@@ -1,21 +1,17 @@
 class Luhn:
     def __init__(self, card_num):
-        self.card_num = card_num
+        self.card_num = card_num.replace(' ', '')
 
-    def valid(self) -> bool:
-        try:
-            numbers = [int(number) for number in "".join(self.card_num.split())]
-
-            if len(numbers) <= 1:
-                return False
-            else:
-                numbers.reverse()
-        except ValueError:
+    def valid(self):
+        if not self.card_num.isdigit() or len(self.card_num) <= 1:
             return False
+        else: 
+            numbers = [int(number) for number in self.card_num]
+            numbers.reverse()
 
-        for index, number in enumerate(numbers):
-            if index % 2 != 0:
-                numbers[index] *= 2
+            for index, number in enumerate(numbers):
+                if index % 2 != 0:
+                    numbers[index] *= 2
 
                 if numbers[index] > 9:
                     numbers[index] -= 9
